@@ -51,7 +51,9 @@ members = [
     "examples/multi_capability-demo",
     "examples/lockd-demo",
     "examples/pubsub-consumer-demo",
-    "examples/pubsub-producer-demo"
+    "examples/pubsub-producer-demo",
+    "examples/chat-app-sender-demo",
+    "examples/chat-app-receiver-demo"
 ]
 
 [[bin]]

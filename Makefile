@@ -8,6 +8,10 @@ build:
 	cargo build --target wasm32-wasi --release --manifest-path ./examples/lockd-demo/Cargo.toml
 	cargo build --target wasm32-wasi --release --manifest-path ./examples/pubsub-producer-demo/Cargo.toml
 	cargo build --target wasm32-wasi --release --manifest-path ./examples/pubsub-consumer-demo/Cargo.toml
+
+build-app:
+	cargo build --target wasm32-wasi --release --manifest-path ./examples/chat-app-sender-demo/Cargo.toml
+	cargo build --target wasm32-wasi --release --manifest-path ./examples/chat-app-receiver-demo/Cargo.toml
 	
 .PHONY: test
 test:
@@ -34,3 +38,9 @@ run:
 
 run-c:
 	./target/release/wasi-cloud -m ./examples/kv-mq-demo-clang/kv-mq-filesystem-c.wasm -c './examples/kv-mq-demo-clang/wc.toml'
+
+run-sender-app:
+	./target/release/wasi-cloud -m ./target/wasm32-wasi/release/chat-app-sender-demo.wasm -c './examples/chat-app-sender-demo/config.toml'
+
+run-receiver-app:
+	./target/release/wasi-cloud -m ./target/wasm32-wasi/release/chat-app-receiver-demo.wasm -c './examples/chat-app-receiver-demo/config.toml'
